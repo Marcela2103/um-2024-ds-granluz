@@ -1,0 +1,44 @@
+@startuml
+
+actor Comprador as comprador
+boundary "FE Pantalla 'Inicio'" as fePantallaInicio
+
+comprador -> fePantallaInicio
+
+
+control "Ingresar informacion del comprador" as validarFechas
+
+Empresa -right-> validarEmpresa
+IdEmpresa -up-> validarIdEmpresa
+telefono -down-> validarTelefono
+productos -up-> validarProductos
+
+boundary "Mostrar error" as error
+
+validarEmpresa -up-> error: Mostrar error
+validarIdEmpresa -up-> error: Mostrar error
+validarTelefono -up-> error: Mostrar error
+validarProductos -up-> error: Mostrar error
+
+control "Catalogo" as beObtenerproducto
+
+fePantallaCatalogo--> beObtenerproducto
+
+
+boundary "FE Catalogo" as fePantallaInicio
+
+fePantallaDatosProductos -> feCambiarCantidadProductos
+
+control "Clic en Boton 'Siguiente'" as botonSiguiente
+
+control "Guardar datos del producto" as guardarDatosProductos
+
+botonSiguiente -> guardarDatosVuelo
+
+usecase (Seleccionar productos) as seleccionarProductos
+
+guardarDatosProductos -down-> seleccionarProductos
+usecase " "
+
+
+@enduml
