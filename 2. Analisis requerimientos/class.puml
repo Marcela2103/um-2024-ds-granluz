@@ -1,0 +1,53 @@
+@startuml classes
+
+class Comprador {
+    string correo
+    string nombreCompleto
+    float cedula
+    int celular
+    string razonSocial
+    string nombreEmpresa
+    float  nit 
+}
+
+class ContactoEmpresa {
+    string correo
+    int telefono
+    char  direccion
+}
+
+class InfoEmpresa {
+    string analisisSectorial
+    string historia
+    string mision
+    string vision
+    string servicios
+    string tipoClientes
+}
+
+class Catalogo {
+    float peso
+    float ancho
+    float alto
+    float profundidad
+    float precio
+    string color
+}
+
+class CarroCompras{
+    string producto
+    char direccion
+    float precio
+    int cantidad
+    float precioTotal
+
+}
+
+Comprador -o InfoEmpresa
+Comprador -down-* Catalogo
+Comprador -up-* CarroCompras
+Comprador -left-o ContactoEmpresa
+
+
+
+@enduml
