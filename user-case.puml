@@ -1,0 +1,18 @@
+@startuml userCase
+
+actor Comprador as comprador
+usecase (Mira info de la empresa) as informacionEmpresa
+comprador-up->informacionEmpresa
+
+usecase (Ver el catálogo) as Catalogo
+comprador-right->Catalogo
+
+usecase (Comprar producto) as  CompraProducto
+Catalogo-right->CompraProducto 
+
+usecase (Información del comprador) as InfoComprador
+CompraProducto-up->InfoComprador
+
+
+@enduml
+
