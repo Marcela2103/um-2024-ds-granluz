@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @startuml
 
 actor Comprador as comprador
@@ -41,4 +42,10 @@ guardarDatosProductos -down-> seleccionarProductos
 usecase " "
 
 
+=======
+
+@startuml
+
+actor 
+>>>>>>> 8b5a625283a3594abf8bf824fe8f24cdb7a80869
 @enduml
