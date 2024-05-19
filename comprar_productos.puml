@@ -1,0 +1,29 @@
+@startuml comprar productos
+actor "Comprador" as actorComprador
+boundary "<<Pantalla>>\nDatosProductos" as boundryPantallaDatosProductos
+
+actorComprador -> boundryPantallaVenta
+activate boundryPantallaDatosProductos
+    boundryPantallaDatosProductos -> boundryPantallaDatosProductos: getProductos()
+    activate boundryPantallaDatosProductos
+        control "ProductosController" as productosController
+            control "ProductosModel" as productosModel
+            boundryPantallaDatosProductos -> productosController: GET api/v1/productos: Productos
+            activate productosController
+                productosController -> productosModel: getAllProductos()
+                activate productosController
+                        entity productos
+                    activate productosModel
+                        database "velas_db" as dbVelas
+                        activate productosModel
+                            productosModel -> dbVelas: SQL query
+                            dbVelas -> productos
+                            dbVelas -> productosModel: {id, nombreVela, iataCode}
+                        deactivate
+
+                    deactivate
+                deactivate
+        deactivate
+    deactivate
+deactivate
+@enduml
